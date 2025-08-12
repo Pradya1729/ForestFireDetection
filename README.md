@@ -59,3 +59,6 @@ model.save('models/FFD.keras')
 ## Notes
 - This skeleton does not include the trained model (too large). Place your `models/FFD.keras` file in the `models/` directory before running.
 - If you'd like, reply “include my model” and upload `FFD.keras` and I will bundle it for you.
+
+##Dashboard
+[!image](https://github.com/Pradya1729/ForestFireDetection/blob/54cc7366d1dbeaa0a030f95d461d03a15534eb5f/Screenshot%202025-08-12%20222550.png)
