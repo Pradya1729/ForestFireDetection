@@ -2,9 +2,9 @@ import gdown
 import os
 
 # Your full Google Drive link
-url = "https://drive.google.com/file/d/1BBQt3ERqucWUjhV8fjij-QWmRXR9eKVY/view?usp=drive_link"
+url = "https://drive.google.com/file/d/1WyRsEwZ5APGkIB-ry_zFrimK26BOZbOk/view?usp=drive_link"
 
-output = os.path.join("model", "fire_model.h5")
+output = os.path.join("model", "fire_model.tflite")
 os.makedirs("model", exist_ok=True)
 
 print("📥 Downloading model from Google Drive...")
