@@ -1,0 +1,5 @@
+body { font-family: Arial, sans-serif; padding: 20px; }
+.container { max-width: 760px; margin: 0 auto; }
+#preview img { max-width: 400px; display:block; margin-top: 10px; }
+#result { margin-top: 12px; font-weight: bold; }
+.uploader { margin-bottom: 10px; }

@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+uploads/
+model/*.keras
+model/FFD.keras
+model/class_names.json
+model/fire_model.h5
+*.h5

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forest Fire Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #f7b733, #fc4a1a);
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            margin-top: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+        canvas {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card p-4">
+        <h2 class="text-center mb-4">🌲🔥 Forest Fire Detection</h2>
+
+        <!-- File Upload -->
+        <form action="/predict" method="post" enctype="multipart/form-data" class="mb-4">
+            <input class="form-control mb-2" type="file" name="file" accept="image/*" required>
+            <button class="btn btn-success w-100">Upload & Predict</button>
+        </form>
+
+        <hr>
+
+        <!-- Webcam -->
+        <h4 class="text-center">Or Capture from Webcam</h4>
+        <video id="webcam" autoplay playsinline></video>
+        <canvas id="canvas"></canvas>
+        <form id="webcamForm" action="/predict_webcam" method="post">
+            <input type="hidden" name="webcam_image" id="webcam_image">
+            <button type="button" id="captureBtn" class="btn btn-primary w-100 mt-2">Capture & Predict</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    const video = document.getElementById("webcam");
+    const canvas = document.getElementById("canvas");
+    const webcamImageInput = document.getElementById("webcam_image");
+    const webcamForm = document.getElementById("webcamForm");
+    const captureBtn = document.getElementById("captureBtn");
+
+    // Access webcam
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => { video.srcObject = stream; })
+        .catch(err => { alert("Webcam access denied: " + err); });
+
+    // Capture frame
+    captureBtn.addEventListener("click", () => {
+        const context = canvas.getContext("2d");
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const imageData = canvas.toDataURL("image/jpeg");
+        webcamImageInput.value = imageData;
+        webcamForm.submit();
+    });
+</script>
+</body>
+</html>

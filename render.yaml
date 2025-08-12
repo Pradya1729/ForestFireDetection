@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: forest-fire-detection
+    env: python
+    plan: free
+    branch: main
+    # buildCommand runs before starting; it installs deps & downloads model
+    buildCommand: pip install -r requirements.txt && python download_model.py
+    startCommand: gunicorn app:app
+    autoDeploy: true
+
