@@ -6,7 +6,7 @@ import tensorflow as tf
 MODEL = None
 INPUT_SHAPE = (150, 150)
 
-MODEL_PATH = os.path.join('model', 'fire_model.h5')
+MODEL_PATH = os.path.join('model', 'fire_model.tflite')
 CLASS_NAMES_PATH = os.path.join('model', 'class_names.json')
 
 # Google Drive links (update if needed)
